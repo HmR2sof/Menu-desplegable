@@ -1,0 +1,104 @@
+/*Esto es para dor un margen general a todo nuestra web*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+
+header{
+    height: 50px; /*Nos da una medida al menu*/
+    background: #2980b9; /*Nos da color al menu*/
+    color: #ffffff; /*Da color blanco al icono hamburgesa*/
+    display: flex; /*Para poner a la derecha*/
+    justify-content: flex-end;/*con esto se va al final*/
+    align-items: center; /*Centramos el contenido*/
+}
+
+#btn-menu{
+    display: none; /*Nos oculta el checbox de hamburguesa para luego usarlo en modo movil*/
+}
+
+header label{
+    font-size: 30px; /*Nos agranda el tamaño del icono hamburgesa*/
+    cursor: pointer/*Para cuando pasemos el cursor salga una manito*/;
+    display: none; /*Nos oculta el icono de hamburguesa para luego usarlo en modo movil*/
+}
+
+.menu ul{
+    background: #2980b9; /*Nos da color al menu cuando se desplaza*/
+    display: flex; /*Esto nos permite colocarlo en una sola linea*/
+    list-style: none; /*Quita los puntos de los menus*/
+}
+
+.menu ul ul{
+    display: none; /*Nos oculta los SubItems*/
+}
+
+.menu a{
+    display: block;
+    padding: 15px 20px;/*Nos acomoda los Items de lso menus*/
+    color: #ffffff; /*Pone de color blanco los Items*/
+    text-decoration: none; /*Nos aculta el subrrallado de los Items*/
+}
+
+.menu a:hover{
+    background: #5dade2; /*Hover nos permite que resalte los items cuando pones el mouse*/
+}
+
+.menu a span{
+    margin-left: 5px; /*Separa a la izquierda los iconos de los flechitas*/
+}
+
+.menu ul li:hover ul{
+    display: block; /*Con esto hacmos que aparesca los SubItems*/
+    position: absolute; /*Con esto hacemos que solo aparesca los items señalados*/
+}
+
+/*----------------------------------------------------------------------------*/
+/***********************PARA QUE EL MENU SEA RESPONSIVE************************/
+/*----------------------------------------------------------------------------*/
+
+@media (max-width:1024px){
+    header label{
+        display: block; /*Con esto hacemos que aparesca el icono de hamburguesa*/
+    }
+
+    .menu{
+        position: absolute; /*Con esto hacemos que salga de encuadre*/
+        top: 50px;
+        left: 0; /*Con esto posicionamos por donde queremos que salga el menu*/
+        width: 100%; /*Con esto hacemos que tanto queremos que el menu ocupe en la panmtalla de forma horizontal*/
+        transform: translateX(-100%); /*Con esto el menu se va a la izquierda acultandose*/
+        transition: all 0.3s; /*Con esto le damos un efecto al menu al ocultarse*/
+    }
+
+    .menu ul{
+        display: block; /*Com esto hacemos que el menu salga de forma horizontal*/
+    }
+
+    .menu ul li:hover ul{
+        display: none; /*Con esto nos quita la opcion en el movil cuando ponenos el cursos que se despliegue*/
+        position: static;
+        background: #d25de2
+
+    }
+
+    .menu a span{
+        position: absolute;
+        right: 15px;; /*Con esto ponemos la flechita al lado derecho*/
+    }
+
+    #btn-menu:checked ~ .menu{
+        transform: translateX(0%); /*Con esto hacemos que aparesca el menu*/
+    }
+
+    .menu ul ul{
+        background:  #19405a
+    }
+
+    .menu ul ul a{
+        padding:  15px 35px;
+    }
+}
